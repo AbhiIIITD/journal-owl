@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        {{#if headlines.length}}
+            {{#each headlines}}
+                <div class="col-md-6 col-lg-4 mt-5"> <!-- Adjust col-lg-* as needed -->
+                    <div class="card">
+                        <a href={{this.url}} style="text-decoration: none; color: inherit;" target="_blank">
+                            <img src={{this.urlToImage}} class="card-img-top" alt="Image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.title}}</h5>
+                                <p class="card-text">{{this.description}}</p>
+                            </div>
+                        </a>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Source: {{#if this.source.name}}{{this.source.name}}{{else}}Unknown{{/if}}</li>
+                            <li class="list-group-item">Author: {{#if this.author}}{{this.author}}{{else}}Unknown{{/if}}</li>
+                        </ul>
+                        <div class="card-footer text-muted">
+                            Published on: {{this.publishedAt}}
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}
+            <div class="col-12 mt-5 text-center">
+                <h2>No results found</h2>
+            </div>
+        {{/if}}
+
+    </div>
+</div>
